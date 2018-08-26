@@ -1,0 +1,109 @@
+\documentclass[10pt, journal]{IEEEtran}
+
+
+\usepackage[T1]{fontenc} % optional
+\usepackage{amsmath}
+\usepackage[cmintegrals]{newtxmath}
+\usepackage{bm} % optional
+\usepackage{cite}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{epigraph}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{siunitx}
+
+
+\markboth{\large Kenny, Aden (300334300) ENGR 401 Assignment 2}{}
+
+\begin{document}
+\title{A Study of Engineering Issues During the Space Race}
+\author{
+\IEEEauthorblockN{Aden Kenny}
+}
+\maketitle
+
+\epigraph{\textit{"Beep...Beep...Beep...Beep..."}}{\textit{Sputnik I}}
+\section{Introduction}
+~\\
+On October 4, 1957 at 19:28 UTC, the world's first artificial satellite, Sputnik 1, was launched from Baikonur Cosmodrome in Kazakh SSR \cite{times1957} as part of the International Geophysical Year \cite{geoyear}. As the satellite orbited the Earth observers all around the world could view it at dusk and dawn though simple optical equipment, or hear the steady radio transmission \cite{radiosput}. The launch of Sputnik surprised the United States of America, even though the Soviets had provided details prior to the launch. In 1958, just a year after the launch, Ley stated that "If somebody tells me that he has the rockets to shoot - which we know from other sources, anyway - and tells me what he will shoot, how he will shoot it, and in general says virtually everything except for the precise date - well, what should I feel like if I'm surprised when the man shoots?" \cite{ley1958}, showing the that America just was simply wilfully ignorant about the Soviet plans for the first man-made object in space.
+
+The launch came as a major shock and caused fear in America, partially because space was seen as the final frontier \cite{bellmusk} and America's expansion into it was viewed simply as an extension of the philosophy of manifest destiny\cite{washmani}. Manifest destiny was the 19th century or belief that America's settlers would expand and inhabit all of North America, and space was simply viewed as another place where America would inevitably spread the benefits of her civilisation \cite{merk1963} after she had already pacified the American frontier. Therefore the Soviet Union's first, fledgling steps into space alarmed the American government, and public who viewed the exploration and exploitation of space as America's "God-given right". Although the idea of manifest destiny and the final frontier played a major part in the American entry into the Space Race, perhaps more pressingly was American's position in the world at the time. The Second World War had recently finished and both America and the Soviet Union had been on the victorious side.  This did not mean relations were friendly between the two super powers. Tensions had risen and the Cold War had started. Around the time of the launch of Sputnik 1, nuclear weapons had begun to be fitted to rocket missiles and this brought the nuclear arms race into a new dimension \cite{bacon}. Now it was possible to rain down death and destruction from halfway across the world, and Sputnik showed that the Soviet Union had the rocketry know-how to create nuclear missiles and America did not - the "missile gap" \cite{missilegap}.
+
+America found herself desperately trying to catch up to the Soviets, both for prestige and propaganda purposes, and to maintain national security interests.
+
+\section{NASA and the Space Race}
+~\\
+Four months after the launch of Sputnik 1, the United States of America launched her first satellite. Explorer 1 was launched from Cape Canaveral on January 31, 1958. Even after this success, President Dwight Eisenhower created the National Aeronautics and Space Administration (NASA) taking the responsibility of America's fledgling space program away from the Army \cite{createNASA}. Wernher von Braun, a German aerospace engineer captured at the end of the Second World War \cite{neufeld}, was appointed NASA's first director and was tasked with catching up to the Soviet Union's space program. Eisenhower and Congress knew that this would require a significant investment of resources but were willing to sanction this, primarily because of the implications for national security \cite{neufeld}. In 1958 NASA was given a budget of 89 million US dollars or 0.1\% of the U.S. federal budget (732 million 2014 dollars). This number would rapidly rise as the space race quickly progressed. On April 12, 1961, Yuri Gagarin, a Soviet cosmonaut, became the first human ever to journey to space. Even after a major increase in NASA's budget (5.918 billion 2014 dollars or 0.9\% of the federal budget), the Soviets had rushed ahead to another spaceflight first. In 1961, the new President, John F. Kennedy, who had been elected in 1960, delivered a speech to Congress on May 25, 1961. In this speech Kennedy declared before Congress that he believed "that this nation should commit itself to achieving the goal, before this decade is out, of landing a man on the moon and returning him safely to the Earth" \cite{kenspeech}.
+
+By and large the American public shared Kennedy's enthusiasm for a Moon-landing, but there were still detractors that decried the high cost of the program and questioned the overall value. While an observer with the power of hindsight would almost certainly disagree with this viewpoint, at the time it was a real fear, as in 1966 NASA's budget peaked at 43.55 billion 2014 dollars (4.41\% of the entire federal budget) an extraordinary amount of money.
+
+\begin{table}
+\centering 
+\caption{NASA's annual budget (USD) 1958 - 1971}
+\label{table:nasabudget}
+
+\begin{threeparttable}
+	\begin{tabular}{| l | c | c |}
+		\hline
+		\textbf{Year} & \textbf{2014 Dollars (Millions)} & \textbf{\% of Federal Budget} \\ \hline
+		1958 & 732 & 0.1\% \\ \hline
+		1959 & 1,185 & 0.2\%\\ \hline
+		1960 & 3,222 & 0.5\%\\ \hline
+		1961 & 5,918 & 0.9\%\\ \hline
+		1962 & 9,990 & 1.18\%\\ \hline
+		1963 & 19,836 & 2.29\%\\ \hline
+		1964 & 32,002 & 3.52\%\\ \hline
+		1965 & 38,448 & 4.31\%\\ \hline
+		1966 & 43,554 & 4.41\%\\ \hline
+		1967 & 38,633 & 3.45\%\\ \hline
+		1968 & 32,274 & 2.65\%\\ \hline
+		1969 & 27,550 & 2.31\%	\\ \hline
+		1970 & 23,000 & 1.92\% \\ \hline
+		1971 & 19,862 & 1.61\% \\ \hline
+	\end{tabular}
+	\footnotesize Source: U.S. Office of Management and Budget
+\end{threeparttable}
+\end{table}
+
+
+\section{Engineering during the space race}
+~\\
+ Never before had so much money been invested in science and engineering as during the Space Race. NASA's budget peaked at 4.41\% of the entire federal budget compared to 0.47\% in 2017. The large budget put towards science and engineering was justified by the military and intelligence agencies as it gave them access to the new "high ground" of space. Throughout history, commanders have always sought to have the advantage of high ground and space represented the "high ground" of the future \cite{highground}. The Space Race also provided a sense of wonder and fulfilled the dreams of many, as we were finally finding out what was out \textit{there}. This large expenditure brought many economic opportunities and technological advances \cite{highground}. Examples include vast improvements in weather prediction due to weather satellites, digital imagery enhancement, fireproof materials, and much more. Engineering for the field of space has produced a large number of useful products partially because the environment of space is extreme and unusual \cite{highground}. Anything engineered for spaceflight or use in space must be very carefully designed and implemented as failure could pay the ultimate price, the loss of human life. This careful process of engineering had to be applied to every product used in the Space Race from the alloys used in the construction of the Saturn V to the source code \cite{11code} for Lunar Module for the Apollo 11 missions.
+
+The source code for the Apollo mission was developed at MIT, with Margaret Hamilton overseeing the development as Director of the Software Engineering Division \cite{hamiltonNASA}. Hamilton is credited for naming the discipline of software engineering \cite{hamiltonFellow}. She stated that she, "began to use the term "software engineering" during the early Apollo missions, in order to give software the legitimacy of other fields such as hardware engineering" \cite{hamiltonMoon}. It can be argued that thanks to her efforts during the Apollo program, the discipline began to gain the legitimacy it so craved which was especially important at the time as software was in the middle of the "software crisis" \cite{softwareCrisis}. Hamilton's work during the Apollo project is frequently credited as, "the foundation for ultra-reliable software design" \cite{hamiltonHonour}.
+
+Engineering and science during the Space Race culminated on July 21, 1969, at 02:56:15 UTC when Neil Armstrong became the first man to step on the moon \cite{missionSummary} \cite{nasa11}. As Armstrong took his first step on the moon he spoke his famous words, "That's one small step for [a] man, one giant leap for mankind.". At least 600 million people of nearly 3.5 billion, watched television broadcasts of the first Moon walk \cite{moonFigures}. It is widely considered to be one of the most significant cultural events of the past 100 years, and as the greatest technological accomplishment of all time \cite{greatest}. The Apollo program brought together countless fields of science and engineering, from astronomy, to physics, to software engineering, to biology. It also brought the beginnings of golden age of science, learning, and engineering that has had a lasting impact on our daily lives, even today.
+
+Apollo 11 accomplished Kennedy's goal \cite{kenspeech} of sending a man to the Moon before the end of the 1960s. Apollo 11 also meant that the United States had beaten the Soviet Union in the race to send a man to the Moon, and therefore had demonstrated the superiority of Capitalism over Communism \cite{economist}. This provided excellent propaganda material for the United States during height of the Cold War, and proved to the government and general public what science and engineering could accomplish with sufficient investment, and the Space Race also inspired generations to come of engineers and scientists. 
+
+\section{Engineering ethics and the space race}
+~\\
+"Now I am become Death, the destroyer of worlds." were the famous words uttered by J. Robert Oppenheimer after the first atomic bomb was detonated on July 16, 1945 \cite{oppenheimerQuote}. The Space Race is undoubtedly linked to the Trinity test and the development of nuclear weapons that started that morning in New Mexico. The viability of nuclear weapons was demonstrated, and they would later be shown to be horrifyingly effective at spreading death, pain, and destruction. A major motivation for such heavy government investment in the Space Race on both the American and Soviet sides was technological research towards nuclear missiles\cite{bacon} \cite{neufeld}. A significant amount of the technological advanced pioneered by the Space Race were adapted to be used in nuclear payload delivery systems such as Minuteman ICBM \cite{grumman}. Luckily, no nuclear missiles have ever been fired in anger, but it is clear that some ethical decisions must be made when choosing to develop spaceflight technology, although, at the present this is less of a priority than in the past due to the lack of major nuclear weapons development at the present time. Although it is unreasonable to argue that engineers and scientists should not have worked on projects such as the Apollo program due the possibility of their work being used for nuclear weapons development, some of the workers must have been aware of the possibility. It is likely that the benefits of the Space Race to other technologies outweigh the harm that nuclear missiles have caused, but the greater context of the Cold War and the role of nuclear weapons should be considered. It could be argued that the development of nuclear weapons and therefore the Space Race are partially responsible for proxy wars such the Vietnam War and the Soviet-Afghan War due to the doctrine of mutually assured destruction \cite{hughes} which was enabled by the both the Soviet Union and the United States possessing nuclear weapons.
+
+On 14 June, 1949, Albert II, a rhesus macaque, became the first monkey in space \cite{albert}. He was launched by the United States and was hooked up to sensors to measure vital signs. This was meant to test the viability of sending humans into space and examine the possible impact on their health. Albert II reached 134km above the surface of Earth, well beyond the K\'arm\'an line, the boundary between Earth's atmosphere and space \cite{karman}. He then died on impact after his parachute failed, and Albert II's story was extremely common around this stage of the Space Race. Around two-thirds of all missions in the late 1940s and early 1950s with a monkey passenger resulted in the death of the unfortunate monkey astronaut \cite{albert}. 
+
+On 3 November, 1957, Laika, a stray dog, was the first animal to orbit the Earth \cite{laika}. She was launched aboard the Soviet mission Sputnik 2. Laika was put into orbit as Soviet scientists wanted a dog in space before a human was launched in order to test if spaceflight would be survivable for a human. The Sputnik 2 spacecraft was designed and built in only four weeks \cite{doges} as the launch date was brought forward at the request of Nikita Khrushchev, the Soviet Leader, for the 40th anniversary of the October Revolution \cite{moveDoge}. Before being launched Laika would undergo training in order to prepare her for spaceflight \cite{laikaTraining}. This training was quite cruel, with Laika being kept in progressively smaller cages in order to prepare her for the confines of Sputnik 2. This confinement caused her to stop defecating, and caused her health to deteriorate \cite{laikaTraining}. She was also placed in a centrifuge to simulate a rocket launch, and this caused her heart rate to double\cite{laikaTraining}. Laika's mission was only ever going to be a one way trip. The technology to de-orbit her craft had not yet been developed, so she was never expected to survive \cite{apLaika}. Laika died on the same day she was launched on the fourth orbit of her voyage, dying of overheating after the cabin of her spacecraft reached \SI{40}{\celsius} due to inadequate thermal shielding \cite{apLaika}.
+
+At the time, the deaths of animals such as Albert II and Laika did not cause significant controversy, as they were overshadowed by the wider Space Race \cite{sadForDoge}. Later, in 1998, after the collapse of the Soviet Union one of the scientists who sent Laika into space stated that, "Work with animals is a source of suffering to all of us. We treat them like babies who cannot speak. The more time passes, the more I'm sorry about it. We shouldn't have done it ... We did not learn enough from this mission to justify the death of the dog" \cite{sadForDoge}. Laika's death did change some parts of the Soviet space program though. In future, all Soviet space missions carrying dogs would be designed so that the dogs could be recovered alive. 
+
+Stories of animals in space do not all have unhappy endings. ZOND 5 was a Soviet mission that became the second spacecraft to circle the Moon \cite{zond}. ZOND 5 carried a veritable Noah's Ark, with two turtles, flies, worms, and various plants being launched into space \cite{zond}. The turtles were the first animals to get a close up view of the Moon, and when the Zond 5 capsule re-entered the Earth's atmosphere and splashed down in the Indian Ocean all the animals were found to be alive and well.
+
+The ethical concerns of sending animals into space must be considered, especially when the animals were sent up with no hope of surviving. While it was necessary to do some animal testing to ascertain if spaceflight was survivable, animals should never have been sent into space with no plans for their survival. Launches like Laika's should have been delayed until it was possible to return the animals safely. Unfortunately animals became victims of the Space Race and were considered expendable by both the American and Soviet teams of scientists and engineers.
+
+\section{The end of the space race}
+~\\
+The Space Race is widely considered to have ended with the Apollo-Soyuz Test Project in 1975 \cite{taylor}. This project was a joint U.S.-Soviet mission, and a American spacecraft docked with a Soviet spacecraft. It was the final Apollo mission which marked the end of era after six Apollo Moon landings. The mission also marked a symbolic end of the Space Race, as the two sides cooperated in space for the first time \cite{handshake}. On 17 July, 1975, at 16:19 UTC, the two spacecraft rendezvoused and docked. The crews then performed joint experiments, exchanged gifts, and rather symbolically, shook hands, signalling an end to Soviet-American competition in space.
+
+ The Space Race  had been resulted in amazing feats being accomplished, such as the Lunar landings, and spacecraft such as Venera 13 landing on the surface of other planets, and these accomplishments were only possible due significant innovation in science and engineering, driven by massive government spending (see Table 1). The Space Race also had a dark side, a lack of care caused the death of countless innocent animals. Eight humans also lost their lives as a direct result of the Space Race. Five Soviets and three Americans died before the end of the Space Race in 1975. Their deaths are almost certainly partially attributable to a lack of engineering quality due to the rushed nature of space exploration which was a result of both the Soviets and Americans wanting to set firsts in space. While it is likely that their still would have been deaths if there was American-Soviet cooperation from the start of the Space Race, it is quite possible that some of the deaths could have been prevented as there would have been less pressure to launch as soon as possible. Overall the Space Race resulted in massive innovation in science and engineering, but brought to light some ethical issues, and partially exposed the dark side of the culture of geopolitical competition. Never before, and never since, has so much money been spent on science and never before, and never since, has there been so many scientific and engineering advantages in such a short time.
+
+~\\
+
+\epigraph{\textit{"We went to explore the Moon, and in fact discovered the Earth"}}{\textit{Eugene Cernan}}
+
+\bibliographystyle{ieeetr}
+%\bibliographystyle{acm}
+\bibliography{bibliography}
+\end{document}
