@@ -28,7 +28,8 @@
 \begin{document}
 
 
-\title{Swipe Without Age and Gender - An React Native Application}
+\title{Swipe Without Age and Gender - A React Native Application}
+
 \author{
 Aden Kenny - 300334300
 }
@@ -94,15 +95,20 @@ The visual hierarchy the order in which a person takes in information in a syste
 	\item{Whitespace}
 \end{itemize}
 
-
 In our app we focused mainly on using size, colour, and whitespace for establishing a clear visual hierarchy. Larger elements were specifically designed this way as they were where we wanted to draw a user's attention to first. A bright red colour was used when we wanted to draw a user's attention to an important button (Register, send a message), and the bright colour would contrast against the white background, which drew the user's attention even more. Whitespace was also used, as the more whitespace around an element, the more a user's attention is drawn to it. Elements that we wanted to draw attention to were given a significant amount of padding, which helped to distinguish them from the rest of the user interface.
 
 ~\\
 The Help page is a good example of these techniques being used. When a user has clicked on the help page, they are clearly confused and need help with using the app. This means that we want to strongly guide them on this specific page. Therefore we use some of the techniques discussed above to guide the user to where they need to be on the page. First of all, we use a large font for the "Need help?" line, and this is the largest element on the page which, along with being at the top of the page, means that a user will be drawn towards it when they first view the page. The next thing a user will see is the bright red register button, which is clearly marked "REGISTER", and if a user knows they want to sign up for an account, they're likely to click on it. This combination of visual hierarchy techniques mean that a user's attention is drawn to the elements that we want them to use, which are the ones that will hopefully help the user the most.
 
-\subsection{Jakob's Law}
+\subsubsection{Alternative - A Horizontal Visual Hierarchy}
+An alternative design decision could have been to create a different, more horizontal visual hierarchy. Currently our visual hierarchy is very horizontally focused. This makes sense for the development of an app that is mainly designed for phones in portrait view, but it may prove to be a poor design decision if a user was using the app on a tablet or a phone in landscape view. 
 
-Jakob's Law states that "Users spend most of their time on other sites. This means that users prefer your site to work the same way as all the other sites they already know." \cite{jakobs}. A user will be more comfortable using a user interface if it is visually and functionally similar to a user interface they are already familiar with. The user will also probably be more efficient while using a familiar interface. This means that without a good reason to not, you should always try to make your user interface work in a similar way to user interfaces of popular programs.
+~\\
+A more horizontal visual hierarchy would probably take advantage of a English speaker's instinct to read from left to right, whereas a vertical visual hierarchy would take advantage of a user's propensity to view things from top to bottom.
+
+~\\
+Overall a horizontal visual hierarchy would probably be rather unfamiliar to our users, which would hurt the user experience of our app (see Section 3.2 - Jakob's Law). Additionally, in most use cases (a phone in portrait view), a horizontal visual hierarchy would probably not work as well as a vertical visual hierarchy.
+
 
 \begin{figure}
 \centering
@@ -120,6 +126,11 @@ Jakob's Law states that "Users spend most of their time on other sites. This mea
   \label{fig:test2}
 \end{minipage}
 \end{figure}
+\subsection{Jakob's Law}
+
+Jakob's Law states that "Users spend most of their time on other sites. This means that users prefer your site to work the same way as all the other sites they already know." \cite{jakobs}. A user will be more comfortable using a user interface if it is visually and functionally similar to a user interface they are already familiar with. The user will also probably be more efficient while using a familiar interface. This means that without a good reason to not, you should always try to make your user interface work in a similar way to user interfaces of popular programs.
+
+
 
 ~\\
 We have taken this design principle to heart in most of the pages in our app. The apps that we felt were most similar to ours, and therefore where we would draw inspiration from were Tinder and Facebook Messenger. The influence of Facebook Messenger can clearly be seen a screenshot of our Conversation page (see Figure 3). The interface should feel familiar to users, due the standard "bubble" messaging interface. Another point of familiarity would be the "chat bar" at the bottom of the screen where a user types in their message.
@@ -127,15 +138,23 @@ We have taken this design principle to heart in most of the pages in our app. Th
 ~\\
 Another example of Jakob's Law in our application is in the Cruise screen (see Figure 4). This screenshot shows the cruise screen, the place where the user will swipe left or right on people depending on if they're interested in that person. This will be familiar to many of the users of our app as it is very similar to the interface of Tinder.
 
+\subsubsection{Alternative - Jakob's Law, Again}
+An alternative design decision could have been to create a user interface that departs quite significantly from precursor applications such as Tinder and Facebook Messenger. This would have presented quite a few disadvantages with no certain advantages. Firstly, it has been proven that the user interfaces of these apps work as they are both very popular, and one should probably have a very good reason for doing something radically different. Secondly, this project had a limited time frame, and coming up with, and implementing a novel user interface and user experience would have been out of scope for this assignment. Thirdly, and perhaps most importantly, we didn't have a novel idea for a user interface, and it's pretty hard to come up with a new user interface without having an idea, let alone a good one.
 
 \subsection{Strong Calls to Action}
 
 \begin{wrapfigure}{r}{0.5\textwidth}
 \centering
 \includegraphics{home.png}
-\caption{A screenshot of the Help page}
+\caption{A screenshot of the Home page}
 \end{wrapfigure}
-\subsection{Visual Hierarchy}
+
+Another major design decision we made during the development of this app was strong calls to action. A call to action is designed to prompt a response from a user, in this case, generally click a button. These calls to action can therefore guide a user to where we want them to be.
+
+~\\
+An example of this in our app is on the Home page (see Figure 5). In the screenshot a clear call to action is visible, the Register button. This button is at the top of the visual hierarchy, and it stands out due to a combination of the whitespace around it, and the bright red colour. When a user first gets the the Home page they are either a previous user and probably don't need guidance around the app, or they are new to the app and need strong guidance. The call to action of the Register button will draw the user in to where we want them to go, to the Register page where they can create an account.
+
+
 
 
 \section{React Native Critique}
