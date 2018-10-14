@@ -1,0 +1,63 @@
+\documentclass[10pt, conference]{IEEEtran}
+
+\usepackage[T1]{fontenc} % optional
+\usepackage{cite}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[usenames]{xcolor}
+\usepackage{fancyvrb}
+
+\begin{document}
+\title{NewSQL - What's the Point?}
+\author{
+\IEEEauthorblockN{Aden Kenny}
+\IEEEauthorblockA{School of Engineering and Computer Science\\
+Victoria Unversity of Wellington\\
+Wellington, New Zealand\\
+kennyaden@ecs.vuw.ac.nz
+}
+}
+\maketitle
+
+
+\section{Introduction}
+
+NewSQL systems are a class of relational database management systems that maintain ACID (Atomicity, Consistency, Isolation, Durability)  principles, as well as have the horizontal scalability of NoSQL systems \cite{pavlo}. The aim of NewSQL systems is to have the scalability of NoSQL systems whilst keeping the relational model from RDBMSs. One of the main selling points of NewSQL systems is that they tout their ability to scale modern online transaction processing workloads in a way that is not possible with legacy (relational, NoSQL) systems \cite{pavlo}.
+
+The term "NewSQL" was coined in 2011 research paper written by Aslett \cite{aslett}. Therefore NewSQL DBMSs are a fairly recent concept, but the field has moved quickly since Aslett first defined them in 2011.
+
+
+\section{Literature Review}
+
+This section will review major pieces of literature in the body of literature on NewSQL systems.
+
+\subsection{What we talk about when we talk about NewSQL - Aslett}
+
+\subsubsection{Content}
+
+The first piece of literature to be reviewed will be Aslett's 2011 report \cite{aslett} that introduced the concept of NewSQL systems. In this report Aslett introduces NewSQL systems as "shorthand for the various new scalable/high performance SQL database vendors". Aslett states that NewSQL systems in the past have been referred to as "ScalableSQL" systems, and it is stated that this name implies horizontal scalability. This is not always the case all the products that are classified as NewSQL systems in this report therefore the name "NewSQL" is used. 
+
+Aslett makes the claim that "NewSQL is not to be taken too literally: the new thing about the NewSQL vendors is the vendor, not the SQL". Aslett then introduces the idea that there is a group of vendors who are developing "new relational database products and services designed to bring the benefits of the relational model to distributed architectures, or to improve the performance of relational databases to the extent that horizontal scalability is no longer a necessity". In this category Aslett includes DBMSs such as GenieDB, NimbusDB, and ScaleDB.
+
+Aslett also states there is a second category of NewSQL DBMSs which focus on "NewSQL-as-a-service". Examples of systems that would fall into this category include Amazon Relational Database Service and Microsoft SQL Azure. This category of DBMSs focuses on selling database access or usage to businesses which allows the business to not worry about replication, backups or other difficult and time consuming database management tasks.
+
+Aslett then states that there is a clear potential for overlap with NoSQL systems. It is stated that RethinkDB, one of the DBMSs that is in the first category Aslett defined, is planning to enable "the use of its database as a schema-less store". Aslett then notes that they expect to see support for SQL queries to come to some NoSQL databases, primarily as a result of the NewSQL movement. Aslett then discusses Citrusleaf, a NoSQL DBMS that claims to support ACID transactions, and states that he is sure that it will not be last NoSQL vendor to do so.
+
+Aslett then states that "NewSQL is not about attempting to re-define the database market using our own term, but it is useful to broadly categorize the various emerging database products at this particular point in time.". Aslett then concludes the report by stating that they have noted the "beginning of the end of NoSQL", and that they foresee the labels NoSQL and NewSQL to become useless as the two combine.
+
+\subsubsection{Conclusion}
+The main things to take away from Aslett's report are the definitions of NewSQL, mainly that NewSQL systems are "new scalable/high performance SQL database vendors". This isn't a very specific definition which is a flaw, but it can be forgiven, as this is, chronologically, the first piece of literature to discuss NewSQL systems.
+
+Another thing to consider from the report is the DBMSs that Aslett identified as NewSQL systems. Aslett lists fifteen DBMSs in the "new NewSQL" category, but very few of these systems have had much uptake as of the writing of this essay in 2018.
+
+In the second category of "NewSQL-as-a-service" DMBSs Aslett lists five systems, but the two that jump out are Amazon Relational Database Service and Microsoft SQL Azure, both of which are extremely popular and have an extremely large user base. 
+
+The final thing to take away from Aslett's report is the prediction that NoSQL will die out due to NewSQL databases. Since 2011 NoSQL DBMS market share has increased \cite{nosql} rather than decreased as Aslett predicted. NewSQL systems have not gained much of a market share either. Overall Aslett's conclusions on the future of NewSQL databases seem to be quite far off the mark.
+
+\section{What's the Point?}
+
+\bibliographystyle{ieeetr}
+
+\nocite{*}
+\bibliography{bibliography}
+\end{document}
