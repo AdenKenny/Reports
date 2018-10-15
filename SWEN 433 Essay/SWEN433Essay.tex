@@ -31,9 +31,7 @@ The term "NewSQL" was coined in 2011 research paper written by Aslett \cite{asle
 
 This section will review major pieces of literature in the body of literature on NewSQL systems.
 
-\subsection{What we talk about when we talk about NewSQL - Aslett}
-
-\subsubsection{Content}
+\subsection{"What we talk about when we talk about NewSQL" - Aslett}
 
 The first piece of literature to be reviewed will be Aslett's 2011 report \cite{aslett} that introduced the concept of NewSQL systems. In this report Aslett introduces NewSQL systems as "shorthand for the various new scalable/high performance SQL database vendors". Aslett states that NewSQL systems in the past have been referred to as "ScalableSQL" systems, and it is stated that this name implies horizontal scalability. This is not always the case all the products that are classified as NewSQL systems in this report therefore the name "NewSQL" is used. 
 
@@ -45,7 +43,6 @@ Aslett then states that there is a clear potential for overlap with NoSQL system
 
 Aslett then states that "NewSQL is not about attempting to re-define the database market using our own term, but it is useful to broadly categorize the various emerging database products at this particular point in time.". Aslett then concludes the report by stating that they have noted the "beginning of the end of NoSQL", and that they foresee the labels NoSQL and NewSQL to become useless as the two combine.
 
-\subsubsection{Conclusion}
 The main things to take away from Aslett's report are the definitions of NewSQL, mainly that NewSQL systems are "new scalable/high performance SQL database vendors". This isn't a very specific definition which is a flaw, but it can be forgiven, as this is, chronologically, the first piece of literature to discuss NewSQL systems.
 
 Another thing to consider from the report is the DBMSs that Aslett identified as NewSQL systems. Aslett lists fifteen DBMSs in the "new NewSQL" category, but very few of these systems have had much uptake as of the writing of this essay in 2018.
@@ -54,7 +51,33 @@ In the second category of "NewSQL-as-a-service" DMBSs Aslett lists five systems,
 
 The final thing to take away from Aslett's report is the prediction that NoSQL will die out due to NewSQL databases. Since 2011 NoSQL DBMS market share has increased \cite{nosql} rather than decreased as Aslett predicted. NewSQL systems have not gained much of a market share either. Overall Aslett's conclusions on the future of NewSQL databases seem to be quite far off the mark.
 
-\section{What's the Point?}
+\subsection{"What's Really New with NewSQL?" - Pavlo and Aslett}
+
+\textit{"What's Really New With NewSQL?"} \cite{pavlo} is a 2016 paper written by Pavlo and Aslett. Aslett is also the author of \textit{"What we talk about when we talk about NewSQL"}, the first piece of literature reviewed in this essay. This paper is an extremely important in the collection of NewSQL literature as it provides a concrete definition for a NewSQL DBMS, something which is lacking in Aslett's \textit{"What we talk about when we talk about NewSQL"}. Pavlo and Aslett also introduce categories of NewSQL systems, and some of the features that are common in NewSQL systems.
+
+In the abstract of this paper Pavlo and Aslett ask the question "[if NewSQL's] superiority is actually true or whether it is simply marketing?" They also ask if "they [NewSQL systems] are indeed able to get better performance, ... [is] there is anything scientifically new about them that enables them to achieve these gains or is it just that hardware has advanced so much that now the bottlenecks from earlier years are no longer a problem?". Overall it can clearly be seen that this paper establishes a definition, a categorisation, and a common feature set in order to help answer the questions they put forward in the abstract.
+
+The first point to note in this paper is the working definition of the term "NewSQL" that is introduced. Pavlo and Aslett state that NewSQL is "a class of modern relational DBMSs that have the scalability of NoSQL while still maintaining ACID". Furthermore, they state that NewSQL systems "want to achieve the same scalability of NoSQL DBMSs ... but keep the relational model." Finally, they give their final overarching definition of a NewSQL system by stating that "a NewSQL system's implementation has to use a lock-free concurrency control scheme and a shared-nothing distributed architecture." 
+
+The abstract therefore introduced concrete definition of what a NewSQL system actually is can then be used to categorise and discuss features common to most, if not all NewSQL systems.
+
+In the next section Pavlo and Aslett go over the history DBMSs, and this section also introduces some of the issues with past DBMSs that led to the creation of NewSQL systems. They introduce those problems as the difficulty of scaling RDBMS systems, and the fact that many applications are unable to use NoSQL systems as they "cannot give up strong transactional and consistency requirements." This meant that an ideal solution to these problems would be a DBMS that allowed easy scaling and supported ACID. This description is basically the same as a definition stated by Pavlo and Aslett in this paper. From this section we can clearly see the motivations for the development of NewSQL systems.
+
+The next section introduces three different categories of NewSQL systems. The three categories are
+
+\begin{itemize}
+	\item{New Architecture}
+	\item{Sharding Middleware}
+	\item{Database-as-a-Service}
+\end{itemize}
+
+New Architecture NewSQL systems are stated to be DBMSs that are built from scratch to fit unique specifications, which means they lack the of the architectural baggage or constraints of legacy systems. All NewSQL systems that fit into this category are "based on distributed architectures that operate on shared-nothing resources, a clear departure from RDBMS systems, but it is noted that like RDBMS systems, these "New Architecture" systems support ACID.
+
+\section{NewSQL use cases}
+
+\section{The Future of NewSQL}
+
+\section{Conclusion}
 
 \bibliographystyle{ieeetr}
 
