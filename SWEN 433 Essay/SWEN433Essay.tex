@@ -19,12 +19,14 @@ kennyaden@ecs.vuw.ac.nz
 }
 \maketitle
 
-
 \section{Introduction}
 
-NewSQL systems are a class of relational database management systems that maintain ACID (Atomicity, Consistency, Isolation, Durability)  principles, as well as have the horizontal scalability of NoSQL systems \cite{pavlo}. The aim of NewSQL systems is to have the scalability of NoSQL systems whilst keeping the relational model from RDBMSs. One of the main selling points of NewSQL systems is that they tout their ability to scale modern online transaction processing workloads in a way that is not possible with legacy (relational, NoSQL) systems \cite{pavlo}.
+NewSQL systems are a class of relational database management systems that maintain ACID (Atomicity, Consistency, Isolation, Durability)  principles, as well as have the horizontal scalability of NoSQL systems \cite{pavlo}. The aim of NewSQL systems is to have the scalability of NoSQL systems whilst keeping the relational model from RDBMSs (relational database management systems). One of the main selling points of NewSQL systems is that they tout their ability to scale modern online transaction processing workloads in a way that is not possible with legacy (relational, NoSQL) systems \cite{pavlo}.
 
 The term "NewSQL" was coined in 2011 research paper written by Aslett \cite{aslett}. Therefore NewSQL DBMSs are a fairly recent concept, but the field has moved quickly since Aslett first defined them in 2011.
+
+This essay will cover one major question about NewSQL DBMSs - ``What are the use cases of NewSQL systems?'', and from these use cases, ``What does the future of NewSQL systems look like?''
+
 
 
 \section{Literature Review}
@@ -37,7 +39,7 @@ The first piece of literature to be reviewed will be Aslett's 2011 report \cite{
 
 Aslett makes the claim that "NewSQL is not to be taken too literally: the new thing about the NewSQL vendors is the vendor, not the SQL". Aslett then introduces the idea that there is a group of vendors who are developing "new relational database products and services designed to bring the benefits of the relational model to distributed architectures, or to improve the performance of relational databases to the extent that horizontal scalability is no longer a necessity". In this category Aslett includes DBMSs such as GenieDB, NimbusDB, and ScaleDB.
 
-Aslett also states there is a second category of NewSQL DBMSs which focus on "NewSQL-as-a-service". Examples of systems that would fall into this category include Amazon Relational Database Service and Microsoft SQL Azure. This category of DBMSs focuses on selling database access or usage to businesses which allows the business to not worry about replication, backups or other difficult and time consuming database management tasks.
+Aslett also states there is a second category of NewSQL DBMSs which focus on "NewSQL-as-a-service". Examples of systems that would fall into this category include Amazon Relational Database Service and Microsoft SQL Azure. This category of DBMSs (database management systems) focuses on selling database access or usage to businesses which allows the business to not worry about replication, backups or other difficult and time consuming database management tasks.
 
 Aslett then states that there is a clear potential for overlap with NoSQL systems. It is stated that RethinkDB, one of the DBMSs that is in the first category Aslett defined, is planning to enable "the use of its database as a schema-less store". Aslett then notes that they expect to see support for SQL queries to come to some NoSQL databases, primarily as a result of the NewSQL movement. Aslett then discusses Citrusleaf, a NoSQL DBMS that claims to support ACID transactions, and states that he is sure that it will not be last NoSQL vendor to do so.
 
@@ -71,9 +73,99 @@ The next section introduces three different categories of NewSQL systems. The th
 	\item{Database-as-a-Service}
 \end{itemize}
 
+\subsubsection{New Architecture Systems}
+
 New Architecture NewSQL systems are stated to be DBMSs that are built from scratch to fit unique specifications, which means they lack the of the architectural baggage or constraints of legacy systems. All NewSQL systems that fit into this category are "based on distributed architectures that operate on shared-nothing resources, a clear departure from RDBMS systems, but it is noted that like RDBMS systems, these "New Architecture" systems support ACID.
 
+Pavlo and Aslett state that all of the DBMSs in this category are ``based on distributed architectures that operate on shared-nothing resources''. This means that these systems can easily be scaled horizontally. Due to the fact that they are distributed systems, they all contain components to support multi-node concurrency control, and fault tolerance, specifically through replication.
+
+Pavlo and Aslett then state that the advantage of using a New Architecture NewSQL DBMS is that ``it is built for distributed execution in that all parts of the system can be optimized for multi-node environments.'' A consequence of this is that that New Architecture systems tend to have better query and overall performance when contrasted with NoSQL DBMSs or other categories of NewSQL DBMSs. 
+
+A optimisation that is common in New Architecture NewSQL DBMSs is the fact that queries and data can be sent between nodes rather than having to be routed through a central middleman or master node. In other words, the DBMS can ``send the query to the data'' rather than ``bringing the data to the query''. This means that in the case of queries that examine or require large amounts of data, time is not spent sending the data between nodes via a middleman. The query can instead be sent to the node that contains the data. The query will almost certainly be smaller than the data that would be required to fulfil the query. This means that there will be a performance increase as the network latency impact about query resolution will be minimised when compared to more traditional ``bring the data to the query'' approach. Network traffic will also be reduced due to the fact that queries are far more likely to be smaller than the data.
+
+\subsubsection{Sharding Middleware Systems}
+
+The second category of systems that Pavlo and Aslett introduce are Sharding Middleware Systems. These are systems that build upon the sharding middleware that was developed in the early 2000s by companies such as eBay, Google, and Facebook. This class of systems splits a database into multiple shards that are stored across a cluster of single-node DBMS instances.
+
+Pavlo and Aslett do emphasise that Sharding Middleware NewSQL DBMSs (new sharding) are different from past sharding middleware DBMSs (old sharding). They offer three main differences. Firstly they state that each node in a new sharding system has to run the same the DBMS, which is in contrast to older technologies where this was not always required. A second difference is that each node in a new sharding system contains only a ``portion of the overall database'', in other words they operate on shared-nothing resources. This is in contrast to some old sharding systems where some of the DBMSs were not shared-nothing, data could be shared across nodes. The third and final difference that Pavlo and Aslett point out is that unlike some older systems, each node of a new sharding system is not meant to be accessed and updated independently. This is because new sharding systems have a centralised master node.
+
+All new sharding systems have a ``centralized middleware component. This component routes queries, coordinates transactions, as well as manages data placement, replication, and partitioning across the nodes. This means that all the ``smart work'' of a new sharding DBMS is done by the middleware component and individual nodes do not have to be concerned with this work. Each node in the DBMS will typically have a ``communication layer'' on top of it that is designed to communicate with the middleware component.
+
+Pavlo and Aslett state that the key advantage of new sharding systems is that they are often a drop-in replacement for an application that is already using an existing single-node DBMS. This  means that developers or database administrators only need to make minimal changes to their application to use a new sharding system.
+
+Pavlo and Aslett mention that this centralised middleware solution does result in a major issue. This issue is that a new sharding system is the middleware itself, but the specific nodes of the system still have to run a traditional DBMS on each node. This means that some of the benefits of NewSQL DBMSs are not available to new sharding systems as they still partially rely on traditional NoSQL or RDBMS systems.
+
+\subsubsection{Online Service Systems}
+
+Pavlo and Aslett's third and final category of NewSQL DBMSs are Online Services systems. This category consists of cloud computing providers that offer NewSQL database-as-a-service (DBaaS) products. These services mean that organizations do not have to maintain the DBMS on either their own private hardware or on a cloud-hosted virtual machine (VM).
+
+This means that the DBaaS provider is responsible for maintaining the physical configuration of the database, including system tuning, replication, and backups. This takes a significant amount of work off the shoulders of the customer of the provider. This means that NewSQL systems can be accessible to smaller companies that do not have the expertise or willpower to host their own database solution.
+
+The customer is generally provided with an API or dashboard to control the database system. This means that the customer can still access and use their database while being able to ignore the more technical maintenance and set-up tasks on their database. 
+
+Pavlo and Aslett state that some systems that had previously been considered in Aslett's 2011 paper ``\textit{What we talk about when we talk about NewSQL}'' \cite{aslett} to be Online Services NewSQL systems, are no longer considered to be NewSQL systems. These are systems that still use the same underlying disk-orientated architecture from the 1970s. Pavlo and Aslett give the examples of Microsoft Azure SQL, and Heroku, as DBMSs that are no longer considered NewSQL systems due to the previously stated reason. 
+
+Pavlo and Aslett state that they only regard DBaaS products that are based on a new architecture as NewSQL systems. The also state that ``DBaaS has the advantage that it can distribute a database across different providers in the same geographical region to avoid downtimes due to service outages.'' This means that Online Service system NewSQL DBMSs have an advantage in terms of geographic fault tolerance.
+
+\subsubsection{NewSQL Features}
+
+Pavlo and Aslett then discuss the features of NewSQL systems, and they attempt to identify what is novel in NewSQL systems. These features mainly revolve around the storage structures, query processing, and fault tolerance of NewSQL DBMSs.
+
+The first feature discussed is main memory storage. Pavlo and Aslett state that currently all the major (non-NewSQL) DBMSs use a disk-oriented storage architecture based on the original DBMSs from the 1970s, where the data is stored on an HDD or SSD. Since reading and writing to these devices is slow, DBMSs use memory to cache blocks read and to buffer from transactions. This was necessary because historically memory was much more expensive and had a limited capacity compared to disks. The point has been reached, where capacities and prices are such that it is affordable to store all but the largest databases in memory. The benefit of this approach is that the DBMS no longer has to assume that a transaction could access data at any time that is not in memory and will have to stall. This means faster querying times for DBMSs that store the entirety of their data in RAM rather than on a HDD or SSD. They do state that a new feature of main memory NewSQL systems, is the ability to evict a subset of the database out to persistent storage to reduce its memory footprint. This allows the DBMS to support databases that are larger than the amount of memory available without having to switch back to a disk-oriented architecture. 
+
+The second feature introduced by Pavlo and Aslett is Sharding. This the fact that almost all of the distributed NewSQL DBMSs scale out is to split a database up into disjoint subsets, generally called shards but also sometimes known as partitioning. They state that distributed transaction processing on partitioned databases is not a new idea. The DBMS assigns each tuple to a fragment based on the values of its attributes using partitioning. This means that a single piece of data will only be on a single node, which is means that most transactions need to access data at a single partition.
+
+The third major feature that is discussed by Pavlo and Aslett is Concurrency Control. Pavlo and Aslett state that concurrency control is the most important implementation detail of a DBMS as it affects almost all aspects of the system. NewSQL DBMSs concurrency control system provides the atomicity and isolation for ACID of the systems. Pavlo and Aslett state that concurrency control permits end-users to access a database in a multi-program fashion while preserving the illusion that each of them is executing their transaction alone. 
+
+Overall Pavlo and Aslett state that they ``we find that there is nothing significantly new about the core concurrency control schemes in NewSQL systems.''
+
+The fourth major feature that is discussed by Pavlo and Aslett is Secondary Indexing. They describe a secondary index as containing a subset of attributes from a table that are different than its primary key(s). They state that this allows the DBMS to support fast queries beyond primary key or partitioning key look-ups. This helps to improve the overall performance of the DBMS.
+
+They state that implementing this in a non-partitioned DBMS is fairly trivial due to the fact that the entire database is located on a single node. Secondary indexing can be a challenge in a distributed DBMS. This is due to the fact that the indices cannot always be partitioned in the same manner as with the rest of the database, in other words, the indexing may not be consistent. Pavlo and Aslett state that ``all of the NewSQL systems based on new architectures are decentralized and use partitioned secondary indexes.'' This means that each node stores a portion of the index, rather than each node having a complete copy of it. 
+
+The fifth feature identified by Pavlo and Aslett is Replication. Replication is obviously not a unique feature of NewSQL databases, but it is stated that all NewSQL databases have replication features. Replication is extremely important as data loss can be extremely costly, especially in a competitive business environment. Pavlo and Aslett state that ``in a strongly consistent DBMS, a transaction's writes must be acknowledged and installed at all replicas before that transaction is considered committed.`` They then make the claim that the advantage of this approach is that replicas can serve read only queries and still be consistent. Furthermore it is stated that it also means that when a replica fails, there are no lost updates because all the other nodes are synchronized. 
+
+Pavlo and Aslett do mention a downside to this model by stating that ``maintaining this synchronization requires the DBMS to use a two-phase commit to ensure that all replicas agree with the outcome of a transaction''. This can add a large amount of overhead to the database system and can reduce the overall performance of the DBMS. This is a trade-off that must be taken into account when considering the use of a NewSQL system, especially compared to traditional non-partitioned which will not have this issue. As a closing statement on replication, Pavlo and Aslett state that all of the NewSQL systems that they are aware of support strongly consistent replication.''
+
+The sixth and final feature that Pavlo and Aslett discuss is Crash Recovery. This provides fault tolerance by being able to recover from a crash. This differs from traditional DBMSs where the main concern of fault tolerance is to ensure that no updates are lost. Pavlo and Aslett state that newer DBMSs must also minimise downtime, as well as providing the previously mentioned crash recovery functionality. This is due to the fact that modern web applications are expected to be online all the time as site outages are costly, both financially and in user numbers. 
+
+New Architecture NewSQL DBMSs have a different approach to crash recovery when compared to Sharding Middleware and Online Service NewSQL DBMSs. New Architecture systems generally rely on recovering the last checkpoint node from local storage and then pulling logs it missed from other nodes that did not crash. Pavlo and Aslett note that as long as the node can process the log faster than new updates are appended to it, the node will eventually converge to the same state as the other replica nodes. 
+
+In contrast Sharding Middleware and Online Service NewSQL systems generally rely on the on built-in mechanisms of their underlying single-node DBMSs for crash recovery. However it is noted that additional infrastructure for leader election and other such management capabilities can be added.
+ 
+\subsubsection{Pavlo and Aslett's Conclusions on NewSQL}
+Pavlo and Aslett then discuss the current status and future of NewSQL DBMSs (note that the paper was published in 2016). They state that NewSQL systems are facing an uphill battle to gain market share, and give examples of several NewSQL focused companies that have either folded or pivoted focus to other areas. They then note that NewSQL systems still lack market share, especially when compared to Aslett's forecast from 2012 \cite{forecast}. This is especially true when compared to NoSQL systems, where the growth is primarily considered to be developer driven \cite{forecast}.
+
+Pavlo and Aslett suggest the reason for the slow uptake of NewSQL systems is that NewSQL DBMSs are designed to support the workloads that are mostly found in enterprise applications. This means that decisions regarding database choices for these enterprise applications are likely to be more conservative than for new Web application workloads. This means that smaller business are going to be less likely to pick up NewSQL systems, as they may lack some new features. Furthermore, it is quite likely that the conservative design of the system could make the system as a whole harder to use, which would also turn off potential users.
+
+Pavlo and Aslett state that they have found that NewSQL DBMSs are not being used for new development, when NewSQL DBMSs are used, they are generally used to complement or replace existing RDBMSs. They have also found that NoSQL DBMSs are the main class of systems being used for new application development. This is obviously an issue for NewSQL systems, as to gain high market share, NewSQL DBMSs need to be being used for new development.
+
+In the conclusion of the paper Pavlo and Aslett state that NewSQL is not a radical departure from previous systems. They state that they are the next chapter in the continuous development of database technologies just as RDBMSs were and NoSQL DBMSs were. Many of the technologies that are used in NewSQL systems have existed in previous DBMSs, both from academia and from industry. They do note that many of the features were only implemented one-at-a-time in a single system and never all together.
+
+Pavlo and Aslett then state that NewSQL systems are by-products of a new era where distributed computing resources are plentiful and affordable, but at the same time the demands of applications is much greater. They believe there will be a convergence of features from RDBMSs, data warehouses, NoSQL DBMSs, and NewSQL DBMSs. DBMSs that spawn from this convergence will support the relational data model, and will support SQL. They claim that when this happens labels will become meaningless as DBMSs will become very similar to each other.
+
 \section{NewSQL use cases}
+
+The main question that will be posed in this essay is ``what are the use cases for NewSQL systems?'', and this section will attempt to answer this question.
+
+In order to understand where NewSQL DBMSs could best be used, we need to recall the advantages and features of NewSQL systems. They are designed to overcome the scaling issues of RDBMSs and the consistency issues of NoSQL DBMSs. This means that any use case of NewSQL systems must require a relational data model, where consistency is needed, and must have a significant amount of query volume (meaning scaling is important).
+
+It is trivial to imagine a situation where the having relational data model, isolation, and consistency are important, if not vital. The real world is full of these situations, and examples include banking, finance, and many more. These situations generally value  These are prime use cases for RDMBSs.
+
+It is also simple to think of situations where the query volume is sufficient to need horizontal scaling. Examples of these include websites with extremely large user bases, social networks, and systems where high availability is needed. These are good use cases for NoSQL DBMSs.
+
+In order to find a use case for NewSQL DBMSs we need to find the union of the set of use cases where the relational model is needed, along with the ability to horizontally scale. Therefore we need to find a use case where there is a large amount of query volume and a relational model is required.
+
+One thing that must be considered is the potential advantage of being schema-less that NoSQL DBMSs present. This can be extremely useful in some situations such social networks, where the data may not have an underlying natural structure, and where different users may have different types of data stored when compared with other users. 
+
+Therefore we need to add yet another condition to find use cases for NewSQL DBMSs. This use case must:
+\begin{itemize}
+	\item{Require the relational model - or at least not be so negatively impacted by using the relational model to become unusable}
+	\item{Require the ability, and have the need to horizontally scale}
+	\item{Not be so negatively impacted by having a schema to become unusable}
+\end{itemize}
+
+One place where NewSQL DBMSs could feasibly be used is in stock markets and banking situations with many many simultaneous queries, and therefore users.
 
 \section{The Future of NewSQL}
 
@@ -81,6 +173,5 @@ New Architecture NewSQL systems are stated to be DBMSs that are built from scrat
 
 \bibliographystyle{ieeetr}
 
-\nocite{*}
 \bibliography{bibliography}
 \end{document}
